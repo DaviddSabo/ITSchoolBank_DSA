@@ -11,5 +11,7 @@ public:
 	void adaugareCont();
 	int GetNumarConturi();
 	void printAllConturi();
+	ContBancar* FindAccount();
+	void choseOption();
 };
 

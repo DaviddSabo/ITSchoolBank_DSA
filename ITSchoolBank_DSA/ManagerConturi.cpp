@@ -53,3 +53,52 @@ void ManagerConturi::printAllConturi()
 	std::cin >> back;
 	system("cls");
 }
+
+ContBancar* ManagerConturi::FindAccount()
+{
+	std::cout << "Tastati numele titularului de cont exact cum este scris in contul bancar\n";
+	std::string nume;
+	std::cin >> nume;
+	std::cout << "Tastati prenumele titularului de cont exact cum este scris in contul bancar\n";
+	std::string prenume;
+	std::cin >> prenume;
+
+	int n = m_listaConturi.size();
+	for (auto& cont : m_listaConturi)
+	{
+		if (cont->getNume() == nume && cont->getPrenume() == prenume)
+			return cont;
+		else {
+			std::cout << "Datele introduse nu sunt corecte, contul nu exista\n";
+			return nullptr;
+		}
+	};
+		
+}
+
+
+
+void ManagerConturi::choseOption()
+{
+	std::cout << "Daca doriti sa afisati toate conturile apasati tasta 1\n";
+	std::cout << "Daca doriti sa afisati un anumit cont apasati tasta 2\n";
+	int n;
+	std::cin >> n;
+	switch (n) {
+	case 1:
+		std::cout<<"Ati ales sa afisati toate conturile\n";
+		printAllConturi();
+		break;
+	case 2:
+		std::cout << "Daca doriti sa aafisati un anumit cont\n";
+		FindAccount();
+		break;
+	default:
+		std::cout << "Optiunea aleasa nu exista\n";
+	}
+	std::cout << "Apasati orice tasta pentru a va intoarce la meniu\n";
+	char back;
+	std::cin >> back;
+	system("cls");
+}
+

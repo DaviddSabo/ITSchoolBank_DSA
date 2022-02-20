@@ -72,7 +72,7 @@ int main()
     case 6:
         system("cls");
         std::cout << "Ati ales optiunea 6\n\n";
-        manager.printAllConturi();
+        manager.choseOption();
         break;
     case 0:
         std::cout << "Multumim, la revedere\n";
