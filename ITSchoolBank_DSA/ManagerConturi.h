@@ -10,6 +10,6 @@ private:
 public:
 	void adaugareCont();
 	int GetNumarConturi();
-
+	void printAllConturi();
 };
 

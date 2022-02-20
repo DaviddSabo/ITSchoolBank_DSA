@@ -37,3 +37,19 @@ int ManagerConturi::GetNumarConturi()
 	int numar_Conturi = m_listaConturi.size();
 	return numar_Conturi;
 }
+
+
+
+void ManagerConturi::printAllConturi()
+{
+	for (auto& it: m_listaConturi) {
+		std::cout<<"Nume: "<<it->getNume()<<std::endl;
+		std::cout << "Prenume: " << it->getPrenume()<<std::endl;
+		std::cout<<"IBAN: "<<it->getIban()<<std::endl;
+		std::cout << "Sold: " << it->getSold() << std::endl;
+	}
+	std::cout << "Apasati orice tasta pentru a va intoarce la meniu\n";
+	char back;
+	std::cin >> back;
+	system("cls");
+}
