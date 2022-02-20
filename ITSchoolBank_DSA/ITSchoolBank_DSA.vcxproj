@@ -139,7 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ContBancar.cpp" />
     <ClCompile Include="ITSchoolBank_DSA.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ContBancar.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

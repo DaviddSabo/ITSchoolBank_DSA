@@ -1,4 +1,5 @@
 #include <iostream>
+#include"ContBancar.h"
 
 /*Banca Proiect.
 ITSchoolBank
@@ -24,6 +25,9 @@ operatorul bancii sa introduca datele pentru crearea contului.(trebuie ca aceast
 
 int main()
 {
-   
+    ContBancar test("Sabo", "David", "RO12351323421");
+    ContBancar* test2 = new ContBancar("Mihai", "Gica", "Ro34234123123");
+
+
 }
 

@@ -18,5 +18,13 @@
     <ClCompile Include="ITSchoolBank_DSA.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ContBancar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ContBancar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
