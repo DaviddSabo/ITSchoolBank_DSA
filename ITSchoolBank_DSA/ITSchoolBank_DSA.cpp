@@ -25,8 +25,16 @@ operatorul bancii sa introduca datele pentru crearea contului.(trebuie ca aceast
 
 int main()
 {
-    ContBancar test("Sabo", "David", "RO12351323421");
-    ContBancar* test2 = new ContBancar("Mihai", "Gica", "Ro34234123123");
+    std::cout << "Alege una din urmatoarele optiuni\n";
+    std::cout << "1-> Numar conturi\n";
+    std::cout << "2-> Creare cont\n";
+    std::cout << "3-> Modificare cont\n";
+    std::cout << "4-> Stergere cont\n";
+    std::cout << "5-> Eliberare\Depunere\n";
+    std::cout << "6-> Detalii cont\n";
+
+
+
 
 
 }
