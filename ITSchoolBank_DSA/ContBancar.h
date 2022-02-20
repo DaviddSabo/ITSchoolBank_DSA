@@ -1,10 +1,12 @@
 #pragma once
 #include<string>
+#include<iostream>
 enum class TipMoneda {
 	RON,
 	EUR,
 	DOLAR
 };
+
 class ContBancar{
 	std::string m_nume;
 	std::string m_prenume;

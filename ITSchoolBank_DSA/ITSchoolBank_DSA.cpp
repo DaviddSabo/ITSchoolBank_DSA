@@ -1,5 +1,5 @@
 #include <iostream>
-#include"ContBancar.h"
+#include"ManagerConturi.h"
 
 /*Banca Proiect.
 ITSchoolBank
@@ -25,7 +25,10 @@ operatorul bancii sa introduca datele pentru crearea contului.(trebuie ca aceast
 
 int main()
 {
-  
+    ManagerConturi manager;
+    int optiune;
+    do {
+
     std::cout << "Alege una din urmatoarele optiuni\n";
     std::cout << "\n";
 
@@ -35,13 +38,12 @@ int main()
     std::cout << "4-> Stergere cont\n";
     std::cout << "5-> Eliberare\Depunere\n";
     std::cout << "6-> Detalii cont\n";
+    std::cout << "0-> EXIT\n";
     std::cout << "\n";
 
-    int optiune;
     std::cout << "Selectati operatiunea aleasa\n";
     std::cin >> optiune;
     std::cout << "\n";
-
 
     switch (optiune) {
     case 1:
@@ -49,6 +51,8 @@ int main()
         break;
     case 2:
         std::cout << "Ati ales optiunea 2\n";
+        system("cls");
+        manager.adaugareCont();
         break;
 
     case 3:
@@ -66,11 +70,14 @@ int main()
     case 6:
         std::cout << "Ati ales optiunea 6\n";
         break;
+    case 0:
+        std::cout << "Multumim, la revedere\n";
     default:
         std::cout << "Optiune invalida\n";
         break;
     }
 
+    } while (optiune != 0);
 
 }
 

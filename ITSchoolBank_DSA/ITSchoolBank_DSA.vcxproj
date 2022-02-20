@@ -141,9 +141,11 @@
   <ItemGroup>
     <ClCompile Include="ContBancar.cpp" />
     <ClCompile Include="ITSchoolBank_DSA.cpp" />
+    <ClCompile Include="ManagerConturi.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ContBancar.h" />
+    <ClInclude Include="ManagerConturi.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
