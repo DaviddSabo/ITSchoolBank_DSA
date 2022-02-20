@@ -7,10 +7,9 @@ std::string ManagerConturi::CreateIban(std::string& Nume, std::string& Prenume)
 
 	int max = 888888889;
 	srand(time(0));
-	random_number = (rand() % max)+111111111;
+	random_number = (rand() % max)+111111110;
 	Iban = Iban + (std::to_string(random_number)) + Prenume[0] +Nume[0] + Nume[1];
 	return Iban;
-
 }
 
 
@@ -29,4 +28,12 @@ void ManagerConturi::adaugareCont()
 	m_listaConturi.push_back(cont);
 
 	system("cls");
+}
+
+
+
+int ManagerConturi::GetNumarConturi()
+{
+	int numar_Conturi = m_listaConturi.size();
+	return numar_Conturi;
 }

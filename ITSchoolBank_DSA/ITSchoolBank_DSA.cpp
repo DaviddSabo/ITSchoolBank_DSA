@@ -47,7 +47,9 @@ int main()
 
     switch (optiune) {
     case 1:
+        system("cls");
         std::cout << "Ati ales optiunea 1\n";
+        std::cout << "Numarul total de conturi este: " << manager.GetNumarConturi() << std::endl;
         break;
     case 2:
         std::cout << "Ati ales optiunea 2\n";
