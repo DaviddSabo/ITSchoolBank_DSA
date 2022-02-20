@@ -1,0 +1,14 @@
+﻿'ITSchoolBank_DSA.exe' (Win32): Loaded 'C:\Users\Sabod\source\repos\ITSchoolBank_DSA\Debug\ITSchoolBank_DSA.exe'. Symbols loaded.
+'ITSchoolBank_DSA.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ntdll.dll'. 
+'ITSchoolBank_DSA.exe' (Win32): Loaded 'C:\Windows\SysWOW64\kernel32.dll'. 
+'ITSchoolBank_DSA.exe' (Win32): Loaded 'C:\Windows\SysWOW64\KernelBase.dll'. 
+'ITSchoolBank_DSA.exe' (Win32): Loaded 'C:\Windows\SysWOW64\msvcp140d.dll'. 
+'ITSchoolBank_DSA.exe' (Win32): Loaded 'C:\Windows\SysWOW64\vcruntime140d.dll'. 
+'ITSchoolBank_DSA.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ucrtbased.dll'. 
+The thread 0x1050 has exited with code 0 (0x0).
+'ITSchoolBank_DSA.exe' (Win32): Loaded 'C:\Windows\SysWOW64\sechost.dll'. 
+'ITSchoolBank_DSA.exe' (Win32): Loaded 'C:\Windows\SysWOW64\rpcrt4.dll'. 
+The thread 0x3574 has exited with code -1073741510 (0xc000013a).
+The thread 0x9f8 has exited with code -1073741510 (0xc000013a).
+The thread 0x4ee0 has exited with code -1073741510 (0xc000013a).
+The program '[10592] ITSchoolBank_DSA.exe' has exited with code -1073741510 (0xc000013a).
