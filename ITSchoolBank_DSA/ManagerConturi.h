@@ -1,7 +1,7 @@
 #pragma once
 #include"ContBancar.h"
 #include<vector>
-
+#include "FileManager.h"
 
 
 class ManagerConturi
@@ -10,6 +10,7 @@ private:
 	std::vector<ContBancar*> m_listaConturi;
 	std::string CreateIban(std::string& Nume, std::string& Prenume); 
 	ContBancar* FindAccount();
+	FileManager* m_fileManager;
 public:
 	void adaugareCont();
 	int GetNumarConturi();
@@ -19,5 +20,7 @@ public:
 	void EraseAccount();
 	void Eliberare_Depunere();
 	void ChangeAccount();
+	ManagerConturi();
+	~ManagerConturi();
 };
 

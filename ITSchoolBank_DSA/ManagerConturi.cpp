@@ -29,6 +29,7 @@ void ManagerConturi::adaugareCont()
 
 	ContBancar* cont = new ContBancar(nume, prenume, iban);
 	m_listaConturi.push_back(cont);
+	m_fileManager->WriteToCSV(nume,prenume,iban,cont->getSold());
 
 	system("cls");
 }
@@ -78,12 +79,7 @@ void ManagerConturi::PrintAccount()
 		}
 		else 
 			std::cout << "Datele introduse nu sunt corecte, contul nu exista\n";
-	};
-	std::cout << "Apasati orice tasta pentru a va intoarce la meniu\n";
-	char back;
-	std::cin >> back;
-	system("cls");
-		
+	};	
 }
 
 
@@ -167,28 +163,39 @@ void ManagerConturi::ChangeAccount()
 		std::cout << "Daca doriti sa modificati numele apasat tasta 1, daca doriti sa modifciati prenumele apasati tasta 2 si 0 pentru a iesi\n";
 		int tasta;
 		std::cin >> tasta;
-		
-			switch (tasta) {
-			case 1: {
-				std::string name;
-				std::cout << "Introduceti Numele nou\n";
-				std::cin >> name;
-				cont->ChangeNume(name);
-				break; }
-			case 2: {
-				std::string last_name;
-				std::cout << "Introduceti prenumele nou\n";
-				std::cin >> last_name;
-				cont->ChangePrenume(last_name) ;
-				break; }
-			case 0:
-				break;
-			default:
-				std::cout << "Optiunea aleasa nu exista\n";
-				std::cout << "Apasati tasta 0 pentru a va intoarce la meniul principal\n";
-				std::cin >> tasta;
-			};
+
+		switch (tasta) {
+		case 1: {
+			std::string name;
+			std::cout << "Introduceti Numele nou\n";
+			std::cin >> name;
+			cont->ChangeNume(name);
+			break; }
+		case 2: {
+			std::string last_name;
+			std::cout << "Introduceti prenumele nou\n";
+			std::cin >> last_name;
+			cont->ChangePrenume(last_name);
+			break; }
+		case 0:
+			break;
+		default:
+			std::cout << "Optiunea aleasa nu exista\n";
+			std::cout << "Apasati tasta 0 pentru a va intoarce la meniul principal\n";
+			std::cin >> tasta;
+		}
 	}
-	
+	else
+		std::cout << " Contul nu exista\n";
+}
+
+ManagerConturi::ManagerConturi()
+{
+	m_fileManager = new FileManager;
+}
+
+ManagerConturi::~ManagerConturi()
+{
+	delete m_fileManager;
 }
 
