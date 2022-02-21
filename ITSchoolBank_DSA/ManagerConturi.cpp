@@ -190,8 +190,11 @@ void ManagerConturi::ChangeAccount()
 }
 
 ManagerConturi::ManagerConturi()
-{
+{ 
 	m_fileManager = new FileManager;
+	//populam lista conturi cu ce se afla in CSV
+	m_listaConturi = m_fileManager->ReadContBancarFromCSV();
+
 }
 
 ManagerConturi::~ManagerConturi()
