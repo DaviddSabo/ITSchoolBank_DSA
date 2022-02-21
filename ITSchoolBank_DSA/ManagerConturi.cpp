@@ -1,6 +1,6 @@
 #include "ManagerConturi.h"
 
-std::string ManagerConturi::CreateIban(std::string& Nume, std::string& Prenume)
+std::string ManagerConturi::CreateIban( std::string& Nume, std::string& Prenume)
 {
 	std::string Iban="ROITBANK0000";
 	int random_number;
@@ -67,7 +67,12 @@ ContBancar* ManagerConturi::FindAccount()
 	for (auto& cont : m_listaConturi)
 	{
 		if (cont->getNume() == nume && cont->getPrenume() == prenume)
-			return cont;
+		{
+			std::cout << "Nume: " << cont->getNume() << std::endl;
+			std::cout << "Prenume: " << cont->getPrenume() << std::endl;
+			std::cout << "IBAN: " << cont->getIban() << std::endl;
+			std::cout << "Sold: " << cont->getSold() << std::endl;
+		}
 		else {
 			std::cout << "Datele introduse nu sunt corecte, contul nu exista\n";
 			return nullptr;
