@@ -63,6 +63,7 @@ int main()
 
     case 4:
         std::cout << "Ati ales optiunea 4\n";
+        manager.EraseAccount();
         break;
 
     case 5:

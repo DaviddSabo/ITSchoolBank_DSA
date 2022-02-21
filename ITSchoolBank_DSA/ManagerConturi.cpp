@@ -1,5 +1,6 @@
 #include "ManagerConturi.h"
 
+
 std::string ManagerConturi::CreateIban( std::string& Nume, std::string& Prenume)
 {
 	std::string Iban="ROITBANK0000";
@@ -11,6 +12,8 @@ std::string ManagerConturi::CreateIban( std::string& Nume, std::string& Prenume)
 	Iban = Iban + (std::to_string(random_number)) + Prenume[0] +Nume[0] + Nume[1];
 	return Iban;
 }
+
+
 
 
 void ManagerConturi::adaugareCont()
@@ -54,7 +57,7 @@ void ManagerConturi::printAllConturi()
 	system("cls");
 }
 
-ContBancar* ManagerConturi::FindAccount()
+void ManagerConturi::PrintAccount()
 {
 	std::cout << "Tastati numele titularului de cont exact cum este scris in contul bancar\n";
 	std::string nume;
@@ -73,11 +76,13 @@ ContBancar* ManagerConturi::FindAccount()
 			std::cout << "IBAN: " << cont->getIban() << std::endl;
 			std::cout << "Sold: " << cont->getSold() << std::endl;
 		}
-		else {
+		else 
 			std::cout << "Datele introduse nu sunt corecte, contul nu exista\n";
-			return nullptr;
-		}
 	};
+	std::cout << "Apasati orice tasta pentru a va intoarce la meniu\n";
+	char back;
+	std::cin >> back;
+	system("cls");
 		
 }
 
@@ -96,7 +101,7 @@ void ManagerConturi::choseOption()
 		break;
 	case 2:
 		std::cout << "Daca doriti sa aafisati un anumit cont\n";
-		FindAccount();
+		PrintAccount();
 		break;
 	default:
 		std::cout << "Optiunea aleasa nu exista\n";
@@ -105,5 +110,34 @@ void ManagerConturi::choseOption()
 	char back;
 	std::cin >> back;
 	system("cls");
+}
+
+
+ContBancar* ManagerConturi::FindAccount()
+{
+	std::cout << "Numele titularului: \n";
+	std::string nume;
+	std::cin >> nume;
+	std::cout << "Prenumele titularului: \n";
+	std::string prenume;
+	std::cin >> prenume;
+
+	for (auto& cont : m_listaConturi) {
+		if (cont->getNume() == nume && cont->getPrenume() == prenume)
+			return cont;
+		else {
+			std::cout << "Titularul nu a fost gasit\n";
+			return nullptr;
+		}
+	}
+}
+
+void ManagerConturi::EraseAccount()
+{
+	std::cout << "Introduceti datele pentru contul ce urmeaza sa fie sters\n";
+	ContBancar* cont= FindAccount();
+	std::vector<ContBancar*>::iterator it = std::find(m_listaConturi.begin(), m_listaConturi.end(), cont);
+	m_listaConturi.erase(it);
+	delete cont;
 }
 
