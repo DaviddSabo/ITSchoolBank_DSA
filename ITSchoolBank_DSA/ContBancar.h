@@ -19,7 +19,10 @@ public:
 	std::string getPrenume() const;
 	std::string getIban() const;
 	float getSold() const;
-
+	void depunere(float suma);
+	void retragere(float suma);
+	void ChangeNume(const std::string& nume_nou) ;
+	void ChangePrenume(const std::string& prenume_nou) ;
 
 
 };

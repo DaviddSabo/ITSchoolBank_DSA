@@ -121,9 +121,10 @@ ContBancar* ManagerConturi::FindAccount()
 	std::cout << "Prenumele titularului: \n";
 	std::string prenume;
 	std::cin >> prenume;
+	
 
 	for (auto& cont : m_listaConturi) {
-		if (cont->getNume() == nume && cont->getPrenume() == prenume)
+		if (cont->getNume() == nume && cont->getPrenume() == prenume )
 			return cont;
 		else {
 			std::cout << "Titularul nu a fost gasit\n";
@@ -139,5 +140,55 @@ void ManagerConturi::EraseAccount()
 	std::vector<ContBancar*>::iterator it = std::find(m_listaConturi.begin(), m_listaConturi.end(), cont);
 	m_listaConturi.erase(it);
 	delete cont;
+}
+
+void ManagerConturi::Eliberare_Depunere()
+{
+	ContBancar* cont = FindAccount();
+	if (cont != nullptr)
+	{
+		std::cout << "Tastati suma pe care doriti sa o depuneti sau sa o retrageti (+ adaugare, - retragere)\n";
+
+		float valoare;
+		std::cin >> valoare;
+		if (valoare >= 0)
+			cont->depunere(valoare);
+		else
+			cont->retragere(valoare);
+	}
+	else
+		std::cout << "Contul este inexistent\n";
+}
+
+void ManagerConturi::ChangeAccount()
+{
+	ContBancar* cont = FindAccount();
+	if (cont != nullptr) {
+		std::cout << "Daca doriti sa modificati numele apasat tasta 1, daca doriti sa modifciati prenumele apasati tasta 2 si 0 pentru a iesi\n";
+		int tasta;
+		std::cin >> tasta;
+		
+			switch (tasta) {
+			case 1: {
+				std::string name;
+				std::cout << "Introduceti Numele nou\n";
+				std::cin >> name;
+				cont->ChangeNume(name);
+				break; }
+			case 2: {
+				std::string last_name;
+				std::cout << "Introduceti prenumele nou\n";
+				std::cin >> last_name;
+				cont->ChangePrenume(last_name) ;
+				break; }
+			case 0:
+				break;
+			default:
+				std::cout << "Optiunea aleasa nu exista\n";
+				std::cout << "Apasati tasta 0 pentru a va intoarce la meniul principal\n";
+				std::cin >> tasta;
+			};
+	}
+	
 }
 

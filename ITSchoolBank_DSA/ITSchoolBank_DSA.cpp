@@ -34,7 +34,7 @@ int main()
 
     std::cout << "1-> Numar conturi\n";
     std::cout << "2-> Creare cont\n";
-    std::cout << "3-> Modificare cont\n";
+    std::cout << "3-> Modificare cont\n";// TODO:TEMA, POATE SCHIMBA NUME, PRENUME
     std::cout << "4-> Stergere cont\n";
     std::cout << "5-> Eliberare\Depunere\n";
     std::cout << "6-> Detalii cont\n";
@@ -59,6 +59,7 @@ int main()
 
     case 3:
         std::cout << "Ati ales optiunea 3\n";
+        manager.ChangeAccount();
         break;
 
     case 4:
@@ -68,6 +69,7 @@ int main()
 
     case 5:
         std::cout << "Ati ales optiunea 5\n";
+        manager.Eliberare_Depunere();
         break;
 
     case 6:

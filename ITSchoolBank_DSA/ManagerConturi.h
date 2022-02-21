@@ -17,5 +17,7 @@ public:
 	void PrintAccount();
 	void choseOption();
 	void EraseAccount();
+	void Eliberare_Depunere();
+	void ChangeAccount();
 };
 

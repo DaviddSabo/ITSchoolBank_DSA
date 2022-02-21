@@ -31,3 +31,30 @@ float ContBancar::getSold() const
 {
 	return m_sold;
 }
+
+void ContBancar::depunere(float suma)
+{
+	m_sold += suma;
+}
+
+void ContBancar::retragere(float suma)
+{
+	if (suma < m_sold) 
+		std::cout << "Fonduri insuficiente. " << "Valoare cont= " << m_sold << std::endl;
+
+	else
+		m_sold += suma;
+
+	
+}
+
+void ContBancar::ChangeNume(const std::string& nume_nou) 
+{
+	m_nume = nume_nou;
+}
+
+void ContBancar::ChangePrenume(const std::string& prenume_nou){
+	m_prenume = prenume_nou;
+}
+
+
