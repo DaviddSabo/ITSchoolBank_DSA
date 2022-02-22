@@ -52,10 +52,6 @@ void ManagerConturi::printAllConturi()
 		std::cout<<"IBAN: "<<it->getIban()<<std::endl;
 		std::cout << "Sold: " << it->getSold() << std::endl;
 	}
-	std::cout << "Apasati orice tasta pentru a va intoarce la meniu\n";
-	char back;
-	std::cin >> back;
-	system("cls");
 }
 
 void ManagerConturi::PrintAccount()
@@ -117,10 +113,12 @@ ContBancar* ManagerConturi::FindAccount()
 	std::cout << "Prenumele titularului: \n";
 	std::string prenume;
 	std::cin >> prenume;
-	
+	std::cout << "IBAN-ul titularului: \n";
+	std::string iban;
+	std::cin >> iban;
 
 	for (auto& cont : m_listaConturi) {
-		if (cont->getNume() == nume && cont->getPrenume() == prenume )
+		if (cont->getNume() == nume && cont->getPrenume() == prenume && iban==cont->getIban() )
 			return cont;
 		else {
 			std::cout << "Titularul nu a fost gasit\n";
@@ -166,11 +164,11 @@ void ManagerConturi::ChangeAccount()
 
 		switch (tasta) {
 		case 1: {
-			std::string name;
-			std::cout << "Introduceti Numele nou\n";
-			std::cin >> name;
-			cont->ChangeNume(name);
-			break; }
+				std::string name;
+				std::cout << "Introduceti Numele nou\n";
+				std::cin >> name;
+				cont->ChangeNume(name);
+				break;}
 		case 2: {
 			std::string last_name;
 			std::cout << "Introduceti prenumele nou\n";
