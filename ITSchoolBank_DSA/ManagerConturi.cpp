@@ -25,15 +25,14 @@ void ManagerConturi::adaugareCont()
 	std::cin >> prenume;
 
 	iban=CreateIban(nume, prenume);  
-	std::cout << iban << std::endl;
+	float sold=0;
 
-	ContBancar* cont = new ContBancar(nume, prenume, iban);
+	ContBancar* cont = new ContBancar(nume, prenume, iban,sold);
 	m_listaConturi.push_back(cont);
 	m_fileManager->WriteToCSV(nume,prenume,iban,cont->getSold());
 
 	system("cls");
 }
-
 
 
 int ManagerConturi::GetNumarConturi()
@@ -197,6 +196,12 @@ ManagerConturi::ManagerConturi()
 
 ManagerConturi::~ManagerConturi()
 {
+	for (auto it : m_listaConturi) {
+		
+		delete it;
+	}
+	m_listaConturi.clear();
 	delete m_fileManager;
+
 }
 

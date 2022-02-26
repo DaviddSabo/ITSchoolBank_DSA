@@ -1,13 +1,17 @@
 #include "ContBancar.h"
 
-ContBancar::ContBancar(std::string nume, std::string prenume, std::string iban)
+ContBancar::ContBancar(std::string nume, std::string prenume, std::string iban,float sold)
 {
 	m_nume = nume;
 	m_prenume = prenume;
 	m_IBAN = iban;
-	m_sold = 0;
 	m_tipSold = TipMoneda::RON;
+	m_sold = sold;
 }
+
+
+
+
 
 
 std::string ContBancar::getNume() const

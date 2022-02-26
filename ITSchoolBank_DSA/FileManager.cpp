@@ -47,7 +47,12 @@ std::vector<ContBancar*> FileManager::ReadContBancarFromCSV()
                 cuvinte.push_back(cuvant);
         }
         if (!cuvinte.empty()) {
-            ContBancar* cont = new ContBancar(cuvinte[0], cuvinte[1], cuvinte[2]);//ToDo:mai un construcotr pentru sold
+
+            if(cuvinte.size()>3)
+                sold = std::stof(cuvinte[3]);
+            else sold = 0;
+
+            ContBancar* cont = new ContBancar(cuvinte[0], cuvinte[1], cuvinte[2], sold);//ToDo:mai un construcotr pentru sold Contbancar
             conturiDinCsv.push_back(cont);
         }
 
