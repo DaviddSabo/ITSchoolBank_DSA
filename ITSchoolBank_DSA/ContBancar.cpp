@@ -6,7 +6,7 @@ ContBancar::ContBancar(std::string nume, std::string prenume, std::string iban,f
 	m_prenume = prenume;
 	m_IBAN = iban;
 	m_tipSold = TipMoneda::RON;
-	m_sold = sold;
+	m_sold=sold;
 }
 
 
@@ -57,7 +57,8 @@ void ContBancar::ChangeNume(const std::string& nume_nou)
 	m_nume = nume_nou;
 }
 
-void ContBancar::ChangePrenume(const std::string& prenume_nou){
+void ContBancar::ChangePrenume(const std::string& prenume_nou)
+{
 	m_prenume = prenume_nou;
 }
 

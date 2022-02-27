@@ -29,7 +29,7 @@ void ManagerConturi::adaugareCont()
 
 	ContBancar* cont = new ContBancar(nume, prenume, iban,sold);
 	m_listaConturi.push_back(cont);
-	m_fileManager->WriteToCSV(nume,prenume,iban,cont->getSold());
+	m_fileManager->WriteToCSV(nume,prenume,iban,sold);
 
 	system("cls");
 }
@@ -75,6 +75,7 @@ void ManagerConturi::PrintAccount()
 		else 
 			std::cout << "Datele introduse nu sunt corecte, contul nu exista\n";
 	};	
+	
 }
 
 
@@ -112,27 +113,32 @@ ContBancar* ManagerConturi::FindAccount()
 	std::cout << "Prenumele titularului: \n";
 	std::string prenume;
 	std::cin >> prenume;
-	std::cout << "IBAN-ul titularului: \n";
-	std::string iban;
-	std::cin >> iban;
-
-	for (auto& cont : m_listaConturi) {
-		if (cont->getNume() == nume && cont->getPrenume() == prenume && iban==cont->getIban() )
+	//std::cout << "IBAN-ul titularului: \n";
+	//std::string iban;
+	//std::cin >> iban;
+	ContBancar* ptr ;
+	for (auto& cont : m_listaConturi)
+	{
+		if (cont->getNume() == nume && cont->getPrenume() == prenume )
 			return cont;
-		else {
-			std::cout << "Titularul nu a fost gasit\n";
-			return nullptr;
-		}
 	}
+	
 }
 
 void ManagerConturi::EraseAccount()
 {
 	std::cout << "Introduceti datele pentru contul ce urmeaza sa fie sters\n";
 	ContBancar* cont= FindAccount();
-	std::vector<ContBancar*>::iterator it = std::find(m_listaConturi.begin(), m_listaConturi.end(), cont);
-	m_listaConturi.erase(it);
-	delete cont;
+	if (cont != nullptr) {
+		std::vector<ContBancar*>::iterator it = std::find(m_listaConturi.begin(), m_listaConturi.end(), cont);
+		m_listaConturi.erase(it);
+		delete cont;
+	}
+	FileManager::DeletefromCSV();
+	for (auto& it : m_listaConturi) {
+		m_fileManager->WriteToCSV(it->getNume(), it->getPrenume(), it->getIban(), it->getSold());
+	}
+	
 }
 
 void ManagerConturi::Eliberare_Depunere()
@@ -151,6 +157,11 @@ void ManagerConturi::Eliberare_Depunere()
 	}
 	else
 		std::cout << "Contul este inexistent\n";
+	FileManager::DeletefromCSV();
+	for (auto& it : m_listaConturi) {
+		m_fileManager->WriteToCSV(it->getNume(), it->getPrenume(), it->getIban(), it->getSold());
+	}
+	
 }
 
 void ManagerConturi::ChangeAccount()
@@ -184,6 +195,13 @@ void ManagerConturi::ChangeAccount()
 	}
 	else
 		std::cout << " Contul nu exista\n";
+		
+	FileManager::DeletefromCSV();
+	for (auto& it : m_listaConturi) {
+		m_fileManager->WriteToCSV(it->getNume(), it->getPrenume(), it->getIban(), it->getSold());
+	}
+
+	
 }
 
 ManagerConturi::ManagerConturi()

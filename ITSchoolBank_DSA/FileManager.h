@@ -12,5 +12,7 @@ class FileManager
 
 	void WriteToCSV(std::string nume, std::string prenume, std::string iban, float sold);
 	std::vector<ContBancar*> ReadContBancarFromCSV();
+	static void DeletefromCSV();
+
 };
 

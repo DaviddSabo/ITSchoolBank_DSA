@@ -4,7 +4,7 @@
 void FileManager::WriteToCSV(std::string nume, std:: string prenume, std::string iban,float sold)
 {
 	std::fstream csv_file;
-	csv_file.open("ConturiDataBase.csv", std::ios::out | std::ios::app);
+	csv_file.open("ConturiDataBase.csv", std::ios::out| std::ios::app );
 	if (csv_file.is_open())
 	{
 		csv_file << nume << ',' << prenume << ',' << iban <<','<<sold<<'\n';
@@ -15,6 +15,14 @@ void FileManager::WriteToCSV(std::string nume, std:: string prenume, std::string
 	csv_file.close();
 
 }
+
+void FileManager::DeletefromCSV()
+{
+    std::ofstream csv_file;
+    csv_file.open("ConturiDataBase.csv", std::ofstream::out | std::ofstream::trunc);
+}
+
+
 
 std::vector<ContBancar*> FileManager::ReadContBancarFromCSV()
 {
@@ -48,8 +56,9 @@ std::vector<ContBancar*> FileManager::ReadContBancarFromCSV()
         }
         if (!cuvinte.empty()) {
 
-            if(cuvinte.size()>3)
+            if (cuvinte.size() > 3) {
                 sold = std::stof(cuvinte[3]);
+            }
             else sold = 0;
 
             ContBancar* cont = new ContBancar(cuvinte[0], cuvinte[1], cuvinte[2], sold);//ToDo:mai un construcotr pentru sold Contbancar
@@ -59,3 +68,5 @@ std::vector<ContBancar*> FileManager::ReadContBancarFromCSV()
     }
     return conturiDinCsv;
 }
+
+
