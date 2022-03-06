@@ -1,5 +1,6 @@
 #include <iostream>
 #include"ManagerConturi.h"
+#include"User.h"
 
 /*Banca Proiect.
 ITSchoolBank
@@ -25,66 +26,89 @@ operatorul bancii sa introduca datele pentru crearea contului.(trebuie ca aceast
 
 int main()
 {
-    ManagerConturi manager;
-    int optiune;
+    int incercari = 3;
     do {
+    std::cout << "Introduceti userul\n";
+    std::string user;
+    std::cin >> user;
+    std::cout << "Introduceti parola\n";
+    std::string parola;
+    std::cin >> parola;
+    User* U = U->getInstance();
+    
+      
+        if (user == U->getUser() && parola == U->getPassword()) {
 
-    std::cout << "Alege una din urmatoarele optiuni\n";
-    std::cout << "\n";
+            ManagerConturi manager;
+            int optiune;
+            do {
 
-    std::cout << "1-> Numar conturi\n";
-    std::cout << "2-> Creare cont\n";
-    std::cout << "3-> Modificare cont\n";// TODO:TEMA, POATE SCHIMBA NUME, PRENUME
-    std::cout << "4-> Stergere cont\n";
-    std::cout << "5-> Eliberare\Depunere\n";
-    std::cout << "6-> Detalii cont\n";
-    std::cout << "0-> EXIT\n";
-    std::cout << "\n";
+                std::cout << "Alege una din urmatoarele optiuni\n";
+                std::cout << "\n";
 
-    std::cout << "Selectati operatiunea aleasa\n";
-    std::cin >> optiune;
-    std::cout << "\n";
+                std::cout << "1-> Numar conturi\n";
+                std::cout << "2-> Creare cont\n";
+                std::cout << "3-> Modificare cont\n";// TODO:TEMA, POATE SCHIMBA NUME, PRENUME
+                std::cout << "4-> Stergere cont\n";
+                std::cout << "5-> Eliberare\Depunere\n";
+                std::cout << "6-> Detalii cont\n";
+                std::cout << "0-> EXIT\n";
+                std::cout << "\n";
 
-    switch (optiune) {
-    case 1:
-        system("cls");
-        std::cout << "Ati ales optiunea 1\n";
-        std::cout << "Numarul total de conturi este: " << manager.GetNumarConturi() << std::endl;
-        break;
-    case 2:
-        std::cout << "Ati ales optiunea 2\n";
-        system("cls");
-        manager.adaugareCont();
-        break;
+                std::cout << "Selectati operatiunea aleasa\n";
+                std::cin >> optiune;
+                std::cout << "\n";
 
-    case 3:
-        std::cout << "Ati ales optiunea 3\n";
-        manager.ChangeAccount();
-        break;
+                switch (optiune) {
+                case 1:
+                    system("cls");
+                    std::cout << "Ati ales optiunea 1\n";
+                    std::cout << "Numarul total de conturi este: " << manager.GetNumarConturi() << std::endl;
+                    break;
+                case 2:
+                    std::cout << "Ati ales optiunea 2\n";
+                    system("cls");
+                    manager.adaugareCont();
+                    break;
 
-    case 4:
-        std::cout << "Ati ales optiunea 4\n";
-        manager.EraseAccount();
-        break;
+                case 3:
+                    std::cout << "Ati ales optiunea 3\n";
+                    manager.ChangeAccount();
+                    break;
 
-    case 5:
-        std::cout << "Ati ales optiunea 5\n";
-        manager.Eliberare_Depunere();
-        break;
+                case 4:
+                    std::cout << "Ati ales optiunea 4\n";
+                    manager.EraseAccount();
+                    break;
 
-    case 6:
-        system("cls");
-        std::cout << "Ati ales optiunea 6\n\n";
-        manager.choseOption();
-        break;
-    case 0:
-        std::cout << "Multumim, la revedere\n";
-    default:
-        std::cout << "Optiune invalida\n";
-        break;
-    }
+                case 5:
+                    std::cout << "Ati ales optiunea 5\n";
+                    manager.Eliberare_Depunere();
+                    break;
 
-    } while (optiune != 0);
+                case 6:
+                    system("cls");
+                    std::cout << "Ati ales optiunea 6\n\n";
+                    manager.choseOption();
+                    break;
+                case 0:
+                    std::cout << "Multumim, la revedere\n";
+                    break;
+                default:
+                    std::cout << "Optiune invalida\n";
+                    break;
+                }
 
+            } while (optiune != 0);
+            break;
+            
+        }
+        else {
+            --incercari;
+            system("cls");
+            std::cout << "User sau parola incorecta.\n" << "Mai aveti " << incercari << " incercari\n";
+            
+        }
+    } while (incercari > 0);
 }
 
