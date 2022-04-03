@@ -1,7 +1,7 @@
 # ITSchoolBank_DSA
 Cerinte proiect/ Project requirements
 Create an application of bank accounts.
-This application shoul have the next features:
+This application should have the next features:
 a) main menu with all the 6 options
 1) Option number 1 is to display the number of registered accounts;
 2) Option number 2 is to create an account which will have: first name, last name , account id, and bank balance;
